@@ -21,6 +21,14 @@ st.set_page_config(
     page_icon="🔍",
 )
 
+if os.getenv("OPENAI_API_KEY") is None:
+    api_key = st.sidebar.text_input("OpenAI API Key", "")
+    os.environ["OPENAI_API_KEY"] = api_key
+
+if os.getenv("OPENAI_API_KEY") is None:
+    st.error("Please provide an OpenAI API Key to use the application.")
+    st.stop()
+
 # Initialize LIDA
 @st.cache_resource
 def init_lida():
