@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 import io
 import base64
+import openai
 from PIL import Image
 import pandas as pd
 from langchain_community.utilities import SQLDatabase
@@ -21,11 +22,12 @@ st.set_page_config(
     page_icon="🔍",
 )
 
-if os.getenv("OPENAI_API_KEY") is None:
-    api_key = st.sidebar.text_input("OpenAI API Key", "")
-    os.environ["OPENAI_API_KEY"] = api_key
+api_key = st.sidebar.text_input("OpenAI API Key", "")
+os.environ["OPENAI_API_KEY"] = api_key
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
-if os.getenv("OPENAI_API_KEY") is None:
+
+if not os.environ["OPENAI_API_KEY"]:
     st.error("Please provide an OpenAI API Key to use the application.")
     st.stop()
 

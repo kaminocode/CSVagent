@@ -1,5 +1,6 @@
 lida==0.0.14
 pandas==2.2.3
+openai==1.59.7
 langgraph==0.2.62
 langchain==0.3.14
 python-dotenv==1.0.1
