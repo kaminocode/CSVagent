@@ -43,7 +43,7 @@ class DataFrameQueryEngine:
     def __init__(
         self, 
         dataframe: pd.DataFrame,
-        model_name: str = "gpt-4o",
+        model_name: str = "gpt-4o-mini",
         verbose: bool = False
     ):
         self.df = dataframe
